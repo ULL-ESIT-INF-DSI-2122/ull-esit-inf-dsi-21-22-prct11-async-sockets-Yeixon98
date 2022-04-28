@@ -1,0 +1,25 @@
+{
+  "name": "P-11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "chai": "^4.3.6",
+    "coveralls": "^3.1.1",
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.7.0",
+    "typedoc": "^0.22.15"
+  }
+}
