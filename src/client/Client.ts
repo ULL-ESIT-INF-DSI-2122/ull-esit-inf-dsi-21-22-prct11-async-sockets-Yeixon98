@@ -5,9 +5,16 @@ const chalk = require("chalk");
 
 import EventEmitterClient from "./EventEmitterClient";
 
+/**
+ * Clase que representa el cliente en la conecion
+ */
 export default class Client {
   constructor(private readonly port: number) {}
 
+  /**
+   * Da comienzo a la peticion
+   * @param request Peticion que se relaizara al servidor
+   */
   start = (request: Request) => {
     const client = net.connect({ port: this.port });
 
@@ -35,10 +42,12 @@ export default class Client {
           break;
         case "read":
           if (!res.status) {
-            console.log(chalk.red(res.message))
-          } else if(res.notes) {
+            console.log(chalk.red(res.message));
+          } else if (res.notes) {
             try {
-              console.log(chalk.keyword(res.notes[0].color)(res.notes[0].title));
+              console.log(
+                chalk.keyword(res.notes[0].color)(res.notes[0].title)
+              );
               console.log(chalk.keyword(res.notes[0].color)(res.notes[0].body));
             } catch (_) {
               console.log(chalk.cyan(res.notes[0].title));

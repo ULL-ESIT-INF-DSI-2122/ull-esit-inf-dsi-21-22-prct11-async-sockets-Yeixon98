@@ -1,3 +1,6 @@
+/**
+ * Representan la estructura de una peticion
+ */
 export type Request = {
   action: string;
   user: string;
@@ -6,6 +9,9 @@ export type Request = {
   color?: string;
 };
 
+/**
+ * Representan la estructura de una respuesta
+ */
 export type Response = {
   status: boolean;
   action: string;
@@ -13,6 +19,9 @@ export type Response = {
   notes?: NoteJSON[];
 };
 
+/**
+ * Representan la estructura de las notas en formato JSON
+ */
 export type NoteJSON = {
   title: string;
   body: string;

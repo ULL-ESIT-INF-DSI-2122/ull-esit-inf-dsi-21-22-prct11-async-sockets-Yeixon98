@@ -1,6 +1,12 @@
 {
   "entryPoints": [
-    "./src/"
+    "./src/client/Client.ts",
+    "./src/client/EventEmitterClient.ts",
+    "./src/server/Server.ts",
+    "./src/server/EventEmitterServer.ts",
+    "./src/NoteManager/note.ts",
+    "./src/NoteManager/noteManager.ts",
+    "./src/types.d.ts"
   ],
   "out": "./docs"
 }

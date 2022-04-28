@@ -4,12 +4,18 @@ import { EventEmitterServer } from "./EventEmitterServer";
 import { NoteManager } from "../NoteManager/noteManager";
 import { Note } from "../NoteManager/note";
 
+/**
+ * Clase que representa el servidor en la conecion
+ */
 export default class Server {
   private noteManager;
   constructor(private readonly port: number) {
     this.noteManager = new NoteManager();
   }
 
+  /**
+   * Da comienzo a la escucha del servidor
+   */
   start = () => {
     const server = net.createServer((connection) => {
       const emitter = new EventEmitterServer(connection);
@@ -90,31 +96,34 @@ export default class Server {
               };
             }
             break;
-            case 'read':
-              if(request.title) {
-                const note = this.noteManager.readNote(request.user, request.title);
-                if (note) {
-                  const noteJSON: NoteJSON = {
-                    title: note.getTitle(),
-                    body: note.getBody(),
-                    color: note.getColor(),
-                  }
-                  const notesJSON: NoteJSON[] = [noteJSON]
-                  response = {
-                    status: true,
-                    action: "read",
-                    message: "",
-                    notes: notesJSON,
-                  };
-                } else {
-                  response = {
-                    status: false,
-                    action: "read",
-                    message: "Note not found",
-                  };
-                }
+          case "read":
+            if (request.title) {
+              const note = this.noteManager.readNote(
+                request.user,
+                request.title
+              );
+              if (note) {
+                const noteJSON: NoteJSON = {
+                  title: note.getTitle(),
+                  body: note.getBody(),
+                  color: note.getColor(),
+                };
+                const notesJSON: NoteJSON[] = [noteJSON];
+                response = {
+                  status: true,
+                  action: "read",
+                  message: "",
+                  notes: notesJSON,
+                };
+              } else {
+                response = {
+                  status: false,
+                  action: "read",
+                  message: "Note not found",
+                };
               }
-              break;
+            }
+            break;
           default:
             break;
         }
