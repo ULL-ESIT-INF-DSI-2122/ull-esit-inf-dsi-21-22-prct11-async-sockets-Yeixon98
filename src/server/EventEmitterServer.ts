@@ -4,7 +4,7 @@ import { Request } from '../types';
 /**
  * Clase EventEmitterServer.
  */
-export class EventEmitterServer extends EventEmitter {
+export default class EventEmitterServer extends EventEmitter {
   /**
    * Constructor de la clase EventEmitterServer
    * @param connection Objeto EventEmitter (Socket)
