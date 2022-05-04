@@ -1,6 +1,6 @@
 import * as net from "net";
 import { NoteJSON, Request, Response } from "../types";
-import { EventEmitterServer } from "./EventEmitterServer";
+import EventEmitterServer from "./EventEmitterServer";
 import { NoteManager } from "../NoteManager/noteManager";
 import { Note } from "../NoteManager/note";
 
